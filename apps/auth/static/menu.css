@@ -1,0 +1,83 @@
+/* styles.css */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+header {
+    background-color: #007BFF;
+    color: #fff;
+    padding: 10px 0;
+    position: relative; /* 親要素に相対配置を指定 */
+}
+
+.pain nav h1{
+    text-align: center; 
+}
+
+nav {
+    display: flex;
+    justify-content: space-between; /* 子要素を左右に配置 */
+    align-items: center; /* 垂直方向に中央揃え */
+    padding: 0 20px;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    padding: 0;
+    margin: 0;
+    align-items: center;
+}
+
+
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.settings-icon {
+    position: absolute; /* 絶対配置を指定 */
+    top: 50%; /* 上から50%の位置に配置 */
+    right: 20px; /* 右から20pxの位置に配置 */
+    transform: translateY(-50%); /* 垂直方向に中央揃え */
+}
+
+.settings-icon a {
+    color: #fff;
+    font-size: 24px;
+    text-decoration: none;
+}
+
+.hero {
+    background-image: url('hero-background.jpg'); /* Figmaからエクスポートした画像 */
+    background-size: cover;
+    text-align: center;
+    padding: 100px 0;
+}
+
+.hero h1 {
+    color: #fff;
+    font-size: 48px;
+    margin: 0;
+    text-align: center;
+}
+
+.hero p {
+    color: #fff;
+    font-size: 24px;
+}
+
+button.chat-button {
+    background-color: #17A2B8;
+    color: #fff;
+    border: none;
+    padding: 15px 30px;
+    font-size: 18px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 20px;
+}

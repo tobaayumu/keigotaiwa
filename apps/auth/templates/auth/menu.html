@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>敬語対話</title>
+        <link rel="stylesheet" href="{{ url_for('auth.static', filename='menu.css') }}">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    </head>
+    <body>
+        <header class="pain">
+            <nav>
+                <h1>敬語対話</h1>
+                <div class="settings-icon">
+                    <a href="#"><i class="fas fa-cog"></i></a>
+                </div>
+            </nav>
+        </header>
+        <main>
+            <section class="hero">
+                <a href="{{ url_for('auth.signup') }}">
+                    <button class="chat-button">新規登録</button> 
+                </a>
+                <a href="{{ url_for('auth.login') }}">
+                    <button class="chat-button">ログイン</button> 
+                </a>
+            </section>
+        </main>
+    </body>
+</html>

@@ -1,0 +1,42 @@
+{% extends "crud/base.html" %}
+{% block title %}ChatKBT{% endblock %}
+
+{% block content %}
+<div class="chat-container">
+    <div class="chat-header">
+        <h2>チャット</h2>
+    </div>
+    <div id="chat-box" class="chat-box">
+        {% if chat_history %}
+            {% for message in chat_history %}
+                {% if message.role == "model" %}
+                <div class="message received">
+                    <p>{{ message.text }}</p>
+                    <span class="time">{{ message.timestamp or "Now" }}</span>
+                </div>
+                {% else %}
+                <div class="message sent">
+                    <p>{{ message.text }}</p>
+                    <span class="time">{{ message.timestamp or "Now" }}</span>
+                </div>
+                {% endif %}
+            {% endfor %}
+        {% endif %}
+    </div>
+    <div class="chat-input">
+        <form action="{{ url_for('crud.chat_route') }}" method="POST">
+            {{ form.hidden_tag() }}
+            {{ form.user_input.label }} {{ form.user_input(class="input") }}
+            <button type="submit">送信</button>
+        </form>
+    </div>
+</div>
+
+<script>
+    // ページが読み込まれたときにチャット履歴の一番下にスクロールする
+    window.onload = function() {
+        var chatBox = document.getElementById('chat-box');
+        chatBox.scrollTop = chatBox.scrollHeight;
+    };
+</script>
+{% endblock %}

@@ -1,0 +1,33 @@
+{% extends "crud/base.html" %}
+{% block title %}モデルの会話履歴{% endblock %}
+
+{% block content %}
+<div class="chat-container">
+    <div class="chat-header">
+        <h2>モデルの会話履歴</h2>
+    </div>
+    <div id="chat-box" class="chat-box">
+        <div class="message received">
+            <p>{{ initial_message }}</p>
+            <div class="message received">
+                {% if model_chats %}
+                    {% for chat in model_chats %}
+                        <p>{{ chat.text }}</p>
+                        <span class="time">{{ chat.timestamp.strftime('%Y-%m-%d %H:%M:%S') }}</span>
+                    {% endfor %}
+                {% else %}
+                    <p>モデルの会話履歴はありません。</p>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    // ページが読み込まれたときにチャット履歴の一番下にスクロールする
+    window.onload = function() {
+        var chatBox = document.getElementById('chat-box');
+        chatBox.scrollTop = chatBox.scrollHeight;
+    };
+</script>
+{% endblock %}
